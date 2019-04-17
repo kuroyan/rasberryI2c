@@ -32,10 +32,15 @@ cnt = 0;
 rad = 0x80
 while 1:
     for i in range(8):
-        read(rad)
+        try:
+            read(rad)
+        except KeyboardInterrupt:
+            break
         rad += 0x10
     print("")
     cnt += 1;
     print("実行回数=", cnt )
     sleep(1)
     rad = 0x80
+
+GPIO.cleanup()
