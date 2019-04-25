@@ -9,11 +9,13 @@ p = 0x0
  
 def protectOFF():
     i2c.write_i2c_block_data(addr,0x7b,[0xf0,0xf0,0xf0,0xf0])
+    sleep(1)
  
 def page(pg):
     ar=[0]
     ar[0] = pg
     i2c.write_i2c_block_data(addr,0x7f,ar)
+    sleep(1)
 
 def read(adr):
     data = i2c.read_i2c_block_data(addr, adr, 16 )
